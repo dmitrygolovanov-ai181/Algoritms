@@ -1,0 +1,40 @@
+testlist_bubblesort = [9,1,7,1,1,7,0,6,3,5,0,8,7,9,6]
+
+testlist_decision = [9,1,7,1,1,7,0,6,3,5,0,8,7,9,6]
+
+testlist_insertion = [9,1,7,1,1,7,0,6,3,5,0,8,7,9,6]
+
+
+
+def bubbles_sort(list):
+    for i in range(0, len(list)-1, 1):
+        for j in range(0, len(list)-1, 1):
+            if list[j]>list[j+1]:
+                list[j], list[j+1] = list[j+1], list[j]
+    return list
+
+def decisions_sort(list):
+    for i in range(0, len(list)-1,1):
+        minimal_number = i
+        for j in range(i,len(list)-1,1):
+            if list[j] < list[minimal_number]:
+                minimal_number = j
+        list[i], list[minimal_number] = list[minimal_number], list[i]
+    return list
+
+def insertions_sort(list):
+    for i in range(0, len(list)-1,1):
+        if list[i]>list[i+1]:
+            catchvariable = list.pop(i+1)
+            for j in range (0, len(list)-2,1):
+                if list[j] > catchvariable:
+                    list.insert(j,catchvariable)
+                    break
+    return list
+
+print(' до сортировки: \n', testlist_bubblesort)
+print(' после сортировки: \n', bubbles_sort(testlist_bubblesort))
+print(' до сортировки: \n',testlist_decision)
+print(' после сортировки: \n', decisions_sort(testlist_decision))
+print(' до сортировки: \n', testlist_insertion)
+print(' после сортировки: \n', insertions_sort(testlist_insertion)) 
